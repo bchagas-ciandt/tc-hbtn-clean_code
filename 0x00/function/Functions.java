@@ -15,10 +15,10 @@ public class Functions {
     public void saveUser(User user){};
 
     public User saveUser(User user){
-        return userRepository.save(user);
+      if(user.isAdmin){
+      user.setRole(user);
     }
-    public void setRole(User user){
-        user.setRole(user);
+      return userRepository.save(user);
     }
 
     public Environment getEnvironment(){
